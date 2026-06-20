@@ -1,31 +1,44 @@
-# Flight Passport
+# ✈️ Flight Passport
 
 <p align="right">
   <strong>English</strong> | <a href="README_CN.md">简体中文</a>
 </p>
 
 
-Flight Passport is a minimalist, serverless flight journal and Web-GIS tracker designed to visualize personal aviation history with absolute elegance. Built entirely within a single-file architecture, this application strips away the modern bloat of heavy front-end frameworks and complex build tools, returning to the clean efficiency of vanilla JavaScript and pure CSS orchestration.
+**Flight Passport** is a single-file, offline-first web application designed for aviation enthusiasts and travelers to track their flight history. It visualizes your routes on a global map with a sleek, dark "Sci-Fi" aesthetic.
 
-### The Philosophy of Zero-Friction
+No backend, no build tools, no installation—just open the HTML file in your browser.
 
-Modern Web-GIS development is increasingly constrained by corporate API gateways, requiring credit card bindings and tracking tokens just to render a basic basemap. Flight Passport breaks this dependency chain. By interacting directly with open Google Maps XYZ tile streams, the application delivers both high-fidelity standard rendered maps and raw hybrid satellite imagery without requiring any API keys or registration. This approach ensures that your flight journal remains permanently portable, completely private, and deployable in any offline or air-gapped environment.
+### ✨ Features
 
-### Cartographic Duality and Geodesic Truth
+*   **🗺️ Dual Map Styles**: Switch between **Google Roadmap** (stylized with a dark blue filter) and **Google Satellite Hybrid**.
+*   **📐 Projection Modes**: Choose between **Great Circle** (realistic spherical arcs) and **Mercator** (straight planar lines).
+*   **📊 Rich Statistics**: Automatically calculates total distance, number of flights, unique airports, countries visited, and estimated flight time.
+*   **💾 Local Storage**: Your flight data is saved directly in your browser. It persists across sessions without a server.
+*   **🌐 Global Coverage**: Pre-loaded with 150+ major airports worldwide (IATA codes included).
 
-The core technical narrative of Flight Passport lies in its real-time projection switching, which visualizes the inherent tension between the curved Earth and flat digital screens:
+### 🚀 Getting Started
 
-* **Spherical Great Circle Mode** calculates the true physical trajectory of flight. It implements geodetic interpolation to project the shortest distance on a sphere onto the Web Mercator canvas, resulting in the organic, sweeping arcs characteristic of real-world aviation paths.
-* **Planar Mercator Mode** operates in pure screen-space coordinates. It linearizes the path between coordinates to present straight lines across the projection plane, reflecting the classic, structural aesthetics of traditional flat paper charts.
+1.  **Download**: Clone this repository or download the `flight passport.html` file.
+2.  **Open**: Double-click the file to open it in any modern browser (Chrome, Edge, Firefox recommended).
+3.  **Network**: Ensure you have an internet connection for the Google Maps tiles to load.
+4.  **Add Flights**: Enter IATA codes (e.g., `PVG` for Shanghai, `LAX` for Los Angeles) in the sidebar to start tracking.
 
-By handling multiple overlapping routes between identical city pairs, the mathematical engine automatically introduces dynamic offset curves, preventing visual collision and maintaining structural clarity even within dense global flight networks.
+### 🛠️ Tech Stack
 
-### Architecture and Local Autonomy
+*   **Frontend**: Vanilla JavaScript (ES6), HTML5, CSS3
+*   **Mapping**: https://leafletjs.com/
+*   **Tiles**: Google Maps (No API Key required for basic use via XYZ)
 
-The interface follows a strict local-first data model. Your complete flight log, airport metrics, and historical statistics reside entirely inside your browser localized web storage. No external servers are contacted; no data leaves your machine. 
+### 📝 Usage Notes
 
-To maintain visual cohesion with contemporary dark-themed interfaces, the mapping engine applies real-time CSS matrix filtration directly onto the map canvas. In rendered mode, the tiles undergo a precise hue-rotation, inversion, and brightness adjustment to create a sci-fi cyber-cartography theme. When switched to satellite mode, the filter instantly disengages, preserving the rich, unaltered natural biomes of the earth.
+*   **IATA Codes**: The app uses 3-letter IATA codes. You can edit the `AIRPORTS` object in the `<script>` section to add more airports.
+*   **Map Styling**: The "Standard Render" mode uses CSS `filter` (hue-rotate, invert) to create a dark theme that matches the UI. The "Satellite" mode displays real imagery.
 
-### Instant Deployment
 
-To launch your personal journal, simply download the `flight_passport.html` file and execute it in any modern browser. The application automatically pulls the required lightweight mapping library via secure content delivery networks and instantiates the global workspace immediately.
+### 🙏 Acknowledgement
+This project is inspired by and references https://github.com/Airbus788/flight_passport. Special thanks to the original author!
+
+
+### 🙏 致谢
+本项目参考并借鉴了 https://github.com/Airbus788/flight_passport，特此致谢！
